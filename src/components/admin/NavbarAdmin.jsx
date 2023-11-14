@@ -1,11 +1,20 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import { Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
-
 import ImageUser from "../../assets/images/icon-user.png";
 import IconCartEmpty from "../../assets/images/icon-cart-empty.svg";
 
 function NavbarAdmin() {
+  const navigate = useNavigate();
+
+  const logoutHandler = () => {
+    // Clear the token from cookies
+    Cookies.remove("token");
+    // Redirect users to the login page or any other page
+    navigate("/login");
+  };
+
   const handleMenuToggle = () => {
     const wrapper = document.getElementById("wrapper");
     if (wrapper.classList.contains("toggled")) {
@@ -53,7 +62,9 @@ function NavbarAdmin() {
                 Settings
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/">Logout</NavDropdown.Item>
+              <NavDropdown.Item onClick={logoutHandler}>
+                Logout
+              </NavDropdown.Item>
             </NavDropdown>
             <Nav.Item>
               <Nav.Link className="nav-link d-inline-block mt-2" href="#">
