@@ -1,7 +1,13 @@
 import React from "react";
+//import Toaster
+import { Toaster } from "react-hot-toast";
 
 function App() {
-  return <div>App</div>;
+  return (
+    <div>
+      <Toaster />
+    </div>
+  );
 }
 
 export default App;
