@@ -1,6 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-import { useHistory } from "react-router-dom"; // Import useHistory hook
+import { useNavigate } from "react-router-dom"; // Import useHistory hook
 
 // Set global Axios defaults
 axios.defaults.baseURL = import.meta.env.VITE_APP_BASEURL;
@@ -16,11 +16,10 @@ Api.interceptors.response.use(
     return response;
   },
   function (error) {
-    const history = useHistory(); // Get history object
     if (error.response && error.response.status === 401) {
       Cookies.remove("token");
       // Use history.push for navigation
-      history.push("/login");
+      navigate("/login");
     }
     return Promise.reject(error);
   }
