@@ -5,10 +5,10 @@ import RoutesIndex from "./routes/routes";
 
 function App() {
   return (
-    <div>
+    <>
       <Toaster />
       <RoutesIndex />
-    </div>
+    </>
   );
 }
 

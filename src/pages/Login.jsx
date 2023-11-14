@@ -3,7 +3,7 @@ import Api from "../api";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/web/Navbar";
+import Navbar from "../components/web/CustomNavbar";
 import LoginPlaceholder from "../assets/images/login-placeholder.png";
 
 const Login = () => {
